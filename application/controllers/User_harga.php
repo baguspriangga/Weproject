@@ -9,6 +9,9 @@ class User_harga extends CI_Controller
 		parent::__construct();
 		$this->load->model('Harga_model');
 		$this->load->helper('url_helper');
+	    if($this->session->userdata('logged_in') != TRUE) :
+			redirect('login');
+		endif;
 	}
 
 	public function index()

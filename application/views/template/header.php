@@ -60,7 +60,7 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="<?php echo base_url();?>assets/AdminLTE/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">Alex</span>
+              <span class="hidden-xs"><?php echo $this->session->userdata('username');?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -93,7 +93,7 @@
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="<?php echo site_url('login/logout');?>" class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>
@@ -119,7 +119,7 @@
           <img src="<?php echo base_url();?>assets/AdminLTE/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alex</p>
+          <p><?php echo $this->session->userdata('username');?></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -157,31 +157,45 @@
             </a>
           </li> -->
 
-          <li>
-            <a href="<?php echo site_url('user_home'); ?>">
-              <i class="fa fa-dashboard "></i> <span>Dashboard</span>
-            </a>
-          </li>
-          <li>
-            <a href="<?php echo site_url('foto_profil'); ?>">
-              <i class="fa fa-image "></i> <span>Foto Profil</span>
-            </a>
-          </li>
-          <li>
-            <a href="<?php echo site_url('user_profil'); ?>">
-              <i class="fa fa-user"></i> <span>User Profil</span>
-            </a>
-          </li>
-          <li>
-            <a href="<?php echo site_url('user_kontak'); ?>">
-              <i class="fa fa-envelope-o "></i> <span>Kontak</span>
-            </a>
-          </li>
-          <li>
-            <a href="<?php echo site_url('user_harga'); ?>">
-              <i class="fa fa-money "></i> <span>Harga</span>
-            </a>
-          </li>
+          <!--ACCESS MENUS FOR ADMIN-->
+          <?php if($this->session->userdata('level')==='1'):?>
+            <li class="active"><a href="#">Dashboard</a></li>
+            <li><a href="#">Posts</a></li>
+            <li><a href="#">Pages</a></li>
+            <li><a href="#">Media</a></li>
+          <!--ACCESS MENUS FOR STAFF-->
+          <?php elseif($this->session->userdata('level')==='2'):?>
+            <li>
+              <a href="<?php echo site_url('user_home'); ?>">
+                <i class="fa fa-dashboard "></i> <span>Dashboard</span>
+              </a>
+            </li>
+            <li>
+              <a href="<?php echo site_url('foto_profil'); ?>">
+                <i class="fa fa-image "></i> <span>Foto Profil</span>
+              </a>
+            </li>
+            <li>
+              <a href="<?php echo site_url('user_profil'); ?>">
+                <i class="fa fa-user"></i> <span>User Profil</span>
+              </a>
+            </li>
+            <li>
+              <a href="<?php echo site_url('user_kontak'); ?>">
+                <i class="fa fa-envelope-o "></i> <span>Kontak</span>
+              </a>
+            </li>
+            <li>
+              <a href="<?php echo site_url('user_harga'); ?>">
+                <i class="fa fa-money "></i> <span>Harga</span>
+              </a>
+            </li>
+          <!--ACCESS MENUS FOR AUTHOR-->
+          <?php else:?>
+            <li class="active"><a href="#">Dashboard</a></li>
+            <li><a href="#">Posts</a></li>
+          <?php endif;?>
+
       </ul>
     </section>
     <!-- /.sidebar -->

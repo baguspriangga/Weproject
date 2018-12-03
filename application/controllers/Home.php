@@ -6,7 +6,6 @@ class Home extends CI_Controller{
   {
     parent::__construct();
     //Codeigniter : Write Less Do More
-  }
  
 	public function index()
 	{

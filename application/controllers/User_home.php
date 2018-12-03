@@ -6,7 +6,12 @@ class User_home extends CI_Controller{
   {
     parent::__construct();
     //Codeigniter : Write Less Do More
+    if($this->session->userdata('logged_in') != TRUE) :
+		redirect('login');
+	endif;
+   
   }
+
  
 	public function index()
 	{

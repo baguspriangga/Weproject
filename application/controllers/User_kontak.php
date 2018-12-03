@@ -9,6 +9,10 @@ class User_kontak extends CI_Controller
 		parent::__construct();
 		$this->load->model('Kontak_model');
 		$this->load->helper('url_helper');
+		
+	    if($this->session->userdata('logged_in') != TRUE) :
+			redirect('login');
+		endif;
 	}
 
 	public function index()
