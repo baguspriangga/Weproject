@@ -14,15 +14,18 @@ class Foto_profil extends CI_Controller {
 
         public function index()
         {
+            $userid = $this->session->userdata('userid');
             $data['error'] = '';
-            $data['get_gambar'] = $this->Upload_model->get_gambar();
+            $data['get_gambar'] = $this->Upload_model->get_gambar($userid);
             $this->template->load('foto_profil/border_fotprofil', 'foto_profil/get_fotprofil',$data);
 
+            //echo $userid;
             // $data['error'] = '';
             // $data['get_gambar'] = $this->Upload_model->get_gambar();
             // $this->load->view('upload_form',$data);
             // echo '<pre>';
-            //              print_r($data);
+            // print_r($data);
+            // exit();
                          
                
         }

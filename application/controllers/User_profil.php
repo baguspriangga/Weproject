@@ -16,8 +16,12 @@ class User_profil extends CI_Controller
 
 	public function index()
 	{
-		$data['get_user_profil'] = $this->User_model->get_user_profil();
+		$userid = $this->session->userdata('userid');
+		$data['get_user_profil'] = $this->User_model->get_user_profil($userid);
 		$this->template->load('user_profil/border_usprofil', 'user_profil/get_usprofil',$data);
+		
+		//echo $userid;
+
 		
 		// echo '<pre>';
 		// print_r($data);
@@ -39,6 +43,9 @@ class User_profil extends CI_Controller
 		if ($this->form_validation->run() === FALSE) {
 			$data['update_user_profil'] = $this->User_model->get_user_profil_id($id);
 			$this->template->load('user_profil/border_usprofil', 'user_profil/update_usprofil',$data);
+			// echo '<pre>';
+			// print_r($data);
+			// exit();
 		}else{
 			$this->User_model->update_user_profil($id);
 			redirect('user_profil');

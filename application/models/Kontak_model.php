@@ -8,8 +8,19 @@
 			$this->load->database();
 		}
 
-		public function get_user_kontak(){
-			$this->db->where('tb_kontak.id_kontak','1');
+		public function get_user_kontak($userid){
+			$this->db->select(
+				'tb_kontak.id_kontak,
+				tb_kontak.no_tlp,
+				tb_kontak.no_hp,
+				tb_kontak.email,
+				tb_kontak.facebook,
+				tb_kontak.instagram, 
+				tb_kontak.youtube,
+				tb_kontak.blog,
+				tbl_users.user_id');
+			$this->db->join('tbl_users', 'tb_kontak.user_id = tbl_users.user_id');
+			$this->db->where('tb_kontak.user_id',$userid);
 			$query = $this->db->get('tb_kontak');
 			return $query->result_array();
 		}

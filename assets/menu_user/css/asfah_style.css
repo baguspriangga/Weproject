@@ -1,0 +1,114 @@
+.daftar-vendor{
+	font-size: 14px;
+	background-color: #fab1a0;
+}
+.asfah-nav{
+	/*background-color: #563D7B;*/
+	/*background-color: #273c75;*/
+	background-color: white;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.asfah-jumbotron{
+	background-color: #fd79a8;
+	color: #ffffff;
+}
+.text-pink{
+	color: #e84393;
+}
+.text-pink:hover{
+	color: #fd79a8;
+}
+.bg-pink{
+	background-color: #fd79a8;
+}
+.bg-pink-2{
+	background-color: #e84393;
+}
+.card-a a{
+	text-decoration: none;
+}
+.card-a .card:hover{
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	transition: 0.5s;
+}
+.card-title:hover{
+	color: #c23616;
+}
+.asfah-sosmed{
+	width: 100px;
+	height: 100px;
+	background-color: white;
+}
+.asfah-form{
+	width: 300px;
+	border-radius: 50px;
+}
+.promo-background{
+	width: 100%; 
+	height: 300px; 
+}
+.promo-text{
+	padding-top: 90px;
+}
+
+/*login*/
+
+
+/* Media Query */
+@media (max-width: 992px) {
+
+}
+@media (max-width: 768px) {
+	.asfah-sosmed{
+		margin-left: 50px;
+	}
+}
+@media (max-width: 576px) {
+	.asfah-jumbotron-text{
+		font-size: 2.5rem;
+	}
+	.asfah-jumbotron-text-2{
+		font-size: 1rem;
+	}
+	.asfah-img-profil{
+		width: 200px;
+	}
+	.promo-text{
+	padding-top: 120px;
+	font-size: 45px;
+	}
+	.asfah-sosmed{
+		margin-left: 0px;
+	}
+}
+
+/* font responsive */
+/*html {
+  font-size: 1rem;
+}
+
+@include media-breakpoint-up(sm) {
+	html {
+	    font-size: 1.2rem;
+	  }
+}
+
+@include media-breakpoint-up(md) {
+  html {
+    font-size: 1.4rem;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  html {
+    font-size: 1.6rem;
+  }
+}
+*/
+
+
+
+
+
+
+

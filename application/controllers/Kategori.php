@@ -17,7 +17,8 @@ class Kategori extends CI_Controller
 		$this->template->load('kategori/border_kategori','kategori/get_kategori',$data);
 		
 		// echo '<pre>';
-		// print_r($this->tampil_kategori());
+		// print_r($data);
+		// exit();
 	}
 
 	public function add_kategori()

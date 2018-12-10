@@ -22,10 +22,12 @@ class Login extends CI_Controller{
         $name  = $data['user_name'];
         $email = $data['user_email'];
         $level = $data['user_level'];
+        $userid = $data['user_id'];
         $sesdata = array(
             'username'  => $name,
             'email'     => $email,
             'level'     => $level,
+            'userid'     => $userid,
             'logged_in' => TRUE
         );
         $this->session->set_userdata($sesdata);
@@ -49,7 +51,7 @@ class Login extends CI_Controller{
  
   function logout(){
       $this->session->sess_destroy();
-      redirect('login');
+      redirect('user_menu');
   }
  
 }

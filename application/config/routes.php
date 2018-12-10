@@ -67,7 +67,7 @@ $route['user_kontak'] = 'user_kontak';
 $route['view'] = 'gambar/form';
 $route['gambar/update_gambar/(:any)'] = 'gambar/update_gambar/$1';
 
-$route['default_controller'] = 'home/index';
+$route['default_controller'] = 'welcome';
 //$route['(:any)'] = 'home/home/$1';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

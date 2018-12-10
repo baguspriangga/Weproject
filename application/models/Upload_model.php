@@ -8,8 +8,10 @@
 			$this->load->database();
 		}
 
-		public function get_gambar(){
-			$this->db->where('id','1');
+		public function get_gambar($userid){
+			$this->db->select('tb_gambar.id, tb_gambar.nama_file,tb_gambar.ukuran_file,tb_gambar.tipe_file,tbl_users.user_id');
+			$this->db->join('tbl_users', 'tb_gambar.user_id = tbl_users.user_id');
+			$this->db->where('tb_gambar.user_id',$userid);
 			$query = $this->db->get('tb_gambar');
 			return $query->result_array();
 		}

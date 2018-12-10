@@ -16,7 +16,8 @@ class User_harga extends CI_Controller
 
 	public function index()
 	{
-		$data['get_user_harga'] = $this->Harga_model->get_user_harga();
+		$userid = $this->session->userdata('userid');
+		$data['get_user_harga'] = $this->Harga_model->get_user_harga($userid);
 		$this->template->load('user_harga/border_harga', 'user_harga/get_harga',$data);
 		
 		// echo '<pre>';

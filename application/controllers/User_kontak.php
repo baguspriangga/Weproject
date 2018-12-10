@@ -17,7 +17,8 @@ class User_kontak extends CI_Controller
 
 	public function index()
 	{
-		$data['get_user_kontak'] = $this->Kontak_model->get_user_kontak();
+		$userid = $this->session->userdata('userid');
+		$data['get_user_kontak'] = $this->Kontak_model->get_user_kontak($userid);
 		$this->template->load('user_kontak/border_kontak', 'user_kontak/get_kontak',$data);
 		
 		// echo '<pre>';

@@ -8,8 +8,10 @@
 			$this->load->database();
 		}
 
-		public function get_user_harga(){
-			$this->db->where('tb_harga.id_harga','1');
+		public function get_user_harga($userid){
+			$this->db->select('tb_harga.id_harga, tb_harga.harga,tbl_users.user_id');
+			$this->db->join('tbl_users', 'tb_harga.user_id = tbl_users.user_id');
+			$this->db->where('tb_harga.user_id',$userid);
 			$query = $this->db->get('tb_harga');
 			return $query->result_array();
 		}
