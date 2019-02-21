@@ -3,32 +3,35 @@ class Login extends CI_Controller{
   function __construct(){
     parent::__construct();
     $this->load->model('Login_model');
+    
   }
  
   function index(){
-    // $data_user = $this->Login_model->cek();
-    // return $data_user;
+    // $data_user = $this->Login_model->get_data();
     // echo "<pre>";
     // print_r($data_user);
-   $this->load->view('login_view');
+    // exit();
+   $this->load->view('user/user_login');
   }
  
   function auth(){
-    $email    = $this->input->post('email',TRUE);
+    $user_name    = $this->input->post('user_name',TRUE);
     $password = md5($this->input->post('password',TRUE));
-    $validate = $this->Login_model->validate($email,$password);
+    $validate = $this->Login_model->validate($user_name,$password);
+ 	//echo '<pre>';
+	// var_dump($validate);
     if($validate->num_rows() > 0){
-        $data  = $validate->row_array();
-        $name  = $data['user_name'];
-        $email = $data['user_email'];
-        $level = $data['user_level'];
-        $userid = $data['user_id'];
+        $data  	= $validate->row_array();
+        $name  		= $data['name'];
+        $user_name 	= $data['user_name'];
+        $level 		= $data['user_level'];
+        $user_id 	= $data['user_id'];
         $sesdata = array(
-            'username'  => $name,
-            'email'     => $email,
-            'level'     => $level,
-            'userid'     => $userid,
-            'logged_in' => TRUE
+            'name'  		=> $name,
+            'user_name'     => $user_name,
+            'level'     	=> $level,
+            'user_id'     	=> $user_id,
+            'logged_in' 	=> TRUE
         );
         $this->session->set_userdata($sesdata);
         // access login for admin
@@ -37,7 +40,7 @@ class Login extends CI_Controller{
  
         // access login for staff
         }elseif($level === '2'){
-            redirect('user_home');
+            redirect('user');
  
         // access login for author
         }else{
@@ -51,7 +54,7 @@ class Login extends CI_Controller{
  
   function logout(){
       $this->session->sess_destroy();
-      redirect('user_menu');
+      redirect('login');
   }
  
 }
